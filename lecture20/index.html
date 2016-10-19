@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html ng-app='MyApp'>
+  <head>
+    <meta charset="utf-8">
+    <script src="angular.min.js"></script>
+    <script src="app.js"></script>
+    <title>My first angular filter</title>
+  </head>
+  <body ng-controller='MyController as myCont'>
+    <h1>This will decorate your string</h1>
+    <div >
+      Nome: <input type="text"  ng-model = "myCont.nome" placeholder="Scrivi un nome"><br>
+      Anno: <input type="text" ng-model = "myCont.anno" placeholder="Inserisci l'anno"><br>
+      <button ng-click="myCont.addToList()">Add to list</button>
+    </div>
+    <div>
+      <ul>
+        <li ng-repeat="i in myCont.list1">Nome: {{i.nome}}; Anno: {{i.anno}}
+          <button ng-click="myCont.removeAt($index)">Remove</button>
+        </li>
+      </ul>
+    </div>
+  </body>
+</html>

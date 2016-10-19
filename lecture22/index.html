@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html ng-app='MyApp'>
+  <head>
+    <meta charset="utf-8">
+    <script src="angular.min.js"></script>
+    <script src="app.js"></script>
+    <title>Shopping list</title>
+  </head>
+  <body >
+    <h1>Shopping list 1</h1>
+    <div ng-controller='ShoppingListController as ShopCont1'>
+      Nome: <input type="text"  ng-model = "ShopCont1.product" placeholder="Prodotto">
+      Anno: <input type="text" ng-model = "ShopCont1.qty" placeholder="Quantit&agrave;"><br>
+      <button ng-click="ShopCont1.addToList()">Add to cart</button><br>
+      <ul>
+        <li ng-repeat="i in ShopCont1.list1">Product: {{i.prod}}; Quantity: {{i.qty}}
+          <button ng-click="ShopCont1.removeAt($index)">Remove</button>
+        </li>
+      </ul>
+    </div>
+  </body>
+</html>

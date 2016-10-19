@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html ng-app='MyApp'>
+  <head>
+    <meta charset="utf-8">
+    <script src="angular.min.js"></script>
+    <script src="app.js"></script>
+    <title>My first angular filter</title>
+  </head>
+  <body ng-controller='MyController'>
+    <h1>This will decorate your string</h1>
+    <div >
+      <input type="text"
+             ng-model = "name">
+    </div>
+    <div>
+      Decorated string= {{name | decor}}
+      <br>
+      Decorated with dollars= {{name | decorguided : "$"}}
+    </div>
+  </body>
+</html>
