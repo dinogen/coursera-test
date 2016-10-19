@@ -26,13 +26,13 @@
   </head>
 <body>
   <div class="container">
-  <h1>Shopping List Check Off</h1>
+  <h1>** Dinogen's Shopping List Check Off **</h1>
 
   <div class="row">
 
     <!-- To Buy List -->
     <div class="col-md-6" ng-controller="ToBuyController as tobuy">
-     <h2>To Buy:</h2>
+     <h2>** To Buy:</h2>
      <ul>
        <li ng-repeat="i in tobuy.toBuyList">Buy {{i.qty}} {{i.name}}
          <button class="btn btn-default" ng-click="tobuy.onClickBought($index)"><span class="glyphicon glyphicon-ok">
@@ -43,7 +43,7 @@
 
     <!-- Already Bought List -->
     <div class="col-md-6" ng-controller="AlreadyBoughtController as already">
-     <h2>Already Bought:</h2>
+     <h2>** Already Bought:</h2>
      <ul>
        <li ng-repeat="i in already.boughtList">Bought {{i.qty}} {{i.name}}
      </ul>
