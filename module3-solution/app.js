@@ -11,15 +11,25 @@ angular.module('NarrowItDownApp', [])
 MenuSearchService.$inject = ['$http', 'BaseURLPath'];
 function MenuSearchService($http, BaseURLPath) {
   var service = this;
-
-
-  // Retrieve menu
-  service.getMenuItems = function () {
-    var response = $http({
+  service.getMatchedMenuItems = function (searchString) {
+    var promise1 = $http({
       method: "GET",
       url: BaseURLPath + "/menu_items.json"
     });
-    return response;
+    var promise2 = promise1.then(function (response) {
+      var fullList = response.data.menu_items;
+      var menuItems = [];
+      fullList.forEach(function (item) {
+        if (item.description.indexOf(searchString)  > 0) {
+          menuItems.push(item);
+        }
+      });
+      return menuItems;
+    })
+    .catch(function (err) {
+      console.log("Error reading from the remote service.");
+    });
+    return promise2;
   };
 }
 
@@ -29,20 +39,12 @@ function NarrowItDownController(MenuSearchService) {
   menu.searchString = "";
   menu.dontWantList = [];
   menu.onNarrow = function () {
-    // console.log("button clicked");
-    menu.menuItems = [];
-    var promise = MenuSearchService.getMenuItems();
+    var promise = MenuSearchService.getMatchedMenuItems(menu.searchString);
     promise.then(function (response) {
-      var menuItems = response.data.menu_items;
-      menuItems.forEach(function (item) {
-        if (item.description.indexOf(menu.searchString)  > 0){
-          // console.log(" scelta item:", item);
-          menu.menuItems.push(item);
-        }
-      });
+      menu.foundList = response;
     })
     .catch(function (err) {
-      console.log("Error reading from the remote service.");
+      console.log("Error from getMatchedMenuItems");
     });
   }
 }
