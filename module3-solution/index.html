@@ -23,10 +23,16 @@
         <li ng-repeat="item in menu.menuItems">{{item.name}}</li>
       </ol> -->
       <!-- found-items should be implemented as a component -->
-      <found-items></found-items>
+      <found-items
+        found="menu.found"
+        on-remove="menu.onRemove(i)"
+        dont="menu.dont"></found-items>
     </div>
-    <div class="text-danger" ng-if="menu.menuItems.length==0">
-      <strong>Nothing found</strong>
+    <div>
+      <h3 ng-if="menu.dont.length > 0">Don't want list:</h3>
+      <ul>
+        <li ng-repeat="item in menu.dont">{{item.id}} {{item.name}}</li>
+      </ul>
     </div>
 
   </div>
