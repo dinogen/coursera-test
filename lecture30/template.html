@@ -1,0 +1,6 @@
+<h3>Here the list:</h3>
+<ul>
+  <li ng-repeat="i in list.list1">Product: {{i.prod}}; Quantity: {{i.qty}}
+    <button ng-click="list.remove({i: $index})">Remove</button>
+  </li>
+</ul>

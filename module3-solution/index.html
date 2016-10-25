@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en" ng-app="MenuSearchApp">
+  <head>
+    <title>Narrow Down Your Menu Choice</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="angular.min.js"></script>
+    <script src="app.js"></script>
+    <link rel="stylesheet" href="styles/bootstrap.min.css">
+    <link rel="stylesheet" href="styles/styles.css">
+  </head>
+<body>
+   <div class="container" ng-controller="MenuSearchController as menu">
+    <h1>Narrow Down Your Chinese Menu Choice</h1>
+
+    <div class="form-group">
+      <input type="text" placeholder="search term" class="form-control" ng-model='menu.searchString'>
+    </div>
+    <div class="form-group narrow-button">
+      <button class="btn btn-primary" ng-click="menu.onNarrow()">Narrow It Down For Me!</button>
+    </div>
+    <div class="">
+      <!-- <ol>
+        <li ng-repeat="item in menu.menuItems">{{item.name}}</li>
+      </ol> -->
+      <!-- found-items should be implemented as a component -->
+      <found-items></found-items>
+    </div>
+    <div class="text-danger" ng-if="menu.menuItems.length==0">
+      <strong>Nothing found</strong>
+    </div>
+
+  </div>
+
+</body>
+</html>

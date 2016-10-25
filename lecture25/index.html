@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html ng-app='MyApp'>
+  <head>
+    <meta charset="utf-8">
+    <script src="angular.min.js"></script>
+    <script src="app.js"></script>
+    <title>Shopping list</title>
+  </head>
+  <body >
+    <h1>Shopping list 1</h1>
+    <div ng-controller='MenuController as menu'>
+      <ul>
+          <shopping-list-item ng-repeat="i in menu.categories"></shopping-list-item>
+      </ul>
+    </div>
+  </body>
+</html>
