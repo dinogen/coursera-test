@@ -22,7 +22,7 @@
       var promise1 = $http({
         method: "GET",
         url: BaseURLPath + "/menu_items.json",
-        data: {category: categoryShortName}
+        params: {category: categoryShortName}
       });
       return promise1;
     }
