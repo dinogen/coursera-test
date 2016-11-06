@@ -11,11 +11,17 @@
     var service = this;
 
     service.getAllCategories = function () {
-      var promise1 = $http({
+      var data1 = $http({
         method: "GET",
         url: BaseURLPath + "/categories.json"
       });
-      return promise1;
+      return data1.then(function (response) {
+        return response.data;
+      }).catch(
+        function (error) {
+          console.log("Error while retrieving data");
+        }
+      );
     }
 
     service.getItemsForCategory = function (categoryShortName) {
