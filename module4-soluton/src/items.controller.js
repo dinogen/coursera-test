@@ -5,18 +5,10 @@ angular.module('MenuApp')
 .controller('ItemsController', ItemsController);
 
 
-ItemsController.$inject = ['MenuDataService', '$stateParams'];
-function ItemsController(MenuDataService,$stateParams) {
+ItemsController.$inject = ['items'];
+function ItemsController(items) {
   var mainlist = this;
-  mainlist.items = [];
-  console.log($stateParams);
-  var promise = MenuDataService.getItemsForCategory($stateParams.category);
-  promise.then(function (response) {
-    mainlist.items = response.data.menu_items;
-  })
-  .catch(function (err) {
-    console.log("Error reading from the remote service.");
-  });
+  mainlist.items = items;
 }
 
 })();

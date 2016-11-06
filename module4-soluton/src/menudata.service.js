@@ -25,12 +25,18 @@
     }
 
     service.getItemsForCategory = function (categoryShortName) {
-      var promise1 = $http({
+      var data1 = $http({
         method: "GET",
         url: BaseURLPath + "/menu_items.json",
         params: {category: categoryShortName}
       });
-      return promise1;
+      return data1.then(function (response) {
+        return response.data.menu_items;
+      }).catch(
+        function (error) {
+          console.log("Error while retrieving data");
+        }
+      );
     }
 
 
