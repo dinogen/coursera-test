@@ -24,7 +24,7 @@ function SignupService($http, ApiPath) {
   service.getMenuItemPromise = function (short_name) {
     var response = $http({
           method: "GET",
-          url: (ApiPath + '/menu_items/' + short_name + '.json')
+          url: (ApiPath + '/menu_items/' + short_name.toUpperCase() + '.json')
         });
     return response;
   };

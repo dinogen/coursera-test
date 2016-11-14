@@ -2,7 +2,7 @@
 "use strict";
 
 angular.module('common', [])
-.constant('ApiPath', 'http://dinogen-module5-server.herokuapp.com')
+.constant('ApiPath', 'https://dinogen-module5-server.herokuapp.com')
 .config(config);
 
 config.$inject = ['$httpProvider'];
