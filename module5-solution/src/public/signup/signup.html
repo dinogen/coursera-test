@@ -1,0 +1,62 @@
+<div class="container">
+  <h1>Signup for our newsletter</h1>
+  <fieldset>
+    <form name="signupForm" novalidate>
+      First Name:
+      <input type="text"
+                   name="firstname"
+                   placeholder="Type your name"
+                   ng-model="signupCtrl.firstname"
+                   required
+                   minlength="3"
+                   >
+      <span class="text-warning"
+       ng-if="(signupForm.firstname.$error.minlength || signupForm.firstname.$error.required) && signupForm.firstname.$touched">
+       First name must be at least 3 characters long
+      </span>
+      <br>
+
+      Last Name:
+      <input type="text"
+                   name="lastname"
+                   placeholder="Type your last name"
+                   ng-model="signupCtrl.lastname"
+                   required
+                   minlength="3"
+                   >
+      <span class="text-warning"
+       ng-if="(signupForm.lastname.$error.minlength || signupForm.lastname.$error.required) && signupForm.lastname.$touched">
+       Last name must be at least 3 characters long
+      </span>
+      <br>
+
+      Email:
+      <input type="email" name="email" placeholder="Email"
+         ng-model="signupCtrl.email"
+         required>
+         <span class="text-warning"
+               ng-if="signupForm.email.$invalid && signupForm.email.$touched">
+           Must be a valid email address: handle@domain format
+         </span>
+         <br>
+
+      Phone number:
+      <input type="text" name="phone" placeholder="Phone ###-###-####"
+         ng-model="signupCtrl.phone"
+         pattern="(\d{3})-(\d{3})-(\d{4})">
+         <span class="text-warning"
+               ng-if="signupForm.phone.$invalid && signupForm.phone.$touched">
+           Phone must be in the format ###-###-####.
+         </span>
+         <br>
+
+      <button class="btn btn-default" ng-disabled="signupForm.$invalid"
+              ng-click="signupCtrl.submit()">Submit</button>
+    </form>
+  </fieldset>
+  <div id="info" ng-if="signupCtrl.completed">
+    <h3>Your information has been saved</h3>
+    <a ui-sref="public.myinfo">View your information</a>
+    <!-- First name: {{ signupCtrl.signupData.firstname}} <br> -->
+  </div>
+</div>

@@ -1,0 +1,12 @@
+<div class="container" ng-if="!myinfoCtrl.signupData.registered">
+  <span >Not Signed Up Yet. <a ui-sref="public.signup">Sign up Now!</a></span>
+</div>
+<div class="container" ng-if="myinfoCtrl.signupData.registered">
+  <h1>Your registered information:</h1>
+  <br>
+  First Name: {{myinfoCtrl.signupData.firstname}}<br>
+  Last Name: {{myinfoCtrl.signupData.lastname}}<br>
+  Email: {{myinfoCtrl.signupData.email}}<br>
+  Phone: {{myinfoCtrl.signupData.phone}}<br>
+  <br>
+</div>
