@@ -11,6 +11,7 @@ function SignupController(SignupService) {
   $ctrl.lastname = "";
   $ctrl.email = "";
   $ctrl.phone = "";
+  $ctrl.favoritedish = "";
 
   $ctrl.signupData = SignupService.getSignupData();
 
@@ -20,6 +21,7 @@ function SignupController(SignupService) {
     $ctrl.signupData.lastname = $ctrl.lastname;
     $ctrl.signupData.email = $ctrl.email;
     $ctrl.signupData.phone = $ctrl.phone;
+    $ctrl.signupData.favoritedish = $ctrl.favoritedish;
     $ctrl.completed = true;
   }
 }
