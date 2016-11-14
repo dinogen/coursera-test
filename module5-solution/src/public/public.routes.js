@@ -46,6 +46,14 @@ function routeConfig ($stateProvider) {
       templateUrl: 'src/public/signup/signup.html',
       controller: 'SignupController',
       controllerAs: 'signupCtrl',
+      resolve: {
+        signupData: ['SignupService', function (SignupService) {
+          return SignupService.getSignupData();
+        }],
+        menuItems: ['MenuService', function (MenuService) {
+          return MenuService.getMenuItems();
+        }]
+      }
     })
     .state('public.myinfo', {
       url: '/myinfo',
@@ -58,7 +66,6 @@ function routeConfig ($stateProvider) {
           return SignupService.getSignupData();
         }]
       }
-
     });
 }
 })();

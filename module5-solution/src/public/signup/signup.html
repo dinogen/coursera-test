@@ -55,14 +55,13 @@
           name="favoritedish"
           ng-model="signupCtrl.favoritedish"
           required>
-    <option value="1">palla</option>
-    <option value="2">palla2</option>
-    <option value="3">palla3</option>
+    <option ng-repeat="menuitem in signupCtrl.menuItems" value="{{menuitem.short_name}}">{{menuitem.name}}</option>
   </select>
   <span class="text-warning"
   ng-if="signupForm.favoritedish.$error.required && signupForm.favoritedish.$touched">
   Please, select your favorite dish
 </span>
+
   <br>
 
   <button class="btn btn-default" ng-disabled="signupForm.$invalid"
