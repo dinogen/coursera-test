@@ -50,18 +50,20 @@
   </span>
   <br>
 
-  Favorite dish:
-  <select class="form-control"
-          name="favoritedish"
-          ng-model="signupCtrl.favoritedish"
-          required>
-    <option ng-repeat="menuitem in signupCtrl.menuItems" value="{{menuitem.short_name}}">{{menuitem.short_name}} - {{menuitem.name}}</option>
-  </select>
+  Favorite Dish code:
+  <input type="text"
+  name="favoritedish"
+  placeholder="Favorite dish code"
+  ng-model="signupCtrl.favoritedish"
+  required>
   <span class="text-warning"
-  ng-if="signupForm.favoritedish.$error.required && signupForm.favoritedish.$touched">
-  Please, select your favorite dish
-</span>
-
+        ng-if="signupForm.lastname.$error.required && signupForm.lastname.$touched">
+    Please enter the code of your favorite dish.
+  </span>
+  <span class="text-warning"
+        ng-if="signupCtrl.showFavoriteError">
+    This code is wrong.
+  </span>
   <br>
 
   <button class="btn btn-default" ng-disabled="signupForm.$invalid"
