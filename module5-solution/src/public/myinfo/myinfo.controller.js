@@ -4,10 +4,11 @@
 angular.module('public')
 .controller('MyinfoController', MyinfoController);
 
-MyinfoController.$inject = ['signupData'];
-function MyinfoController(signupData) {
+MyinfoController.$inject = ['signupData','ApiPath'];
+function MyinfoController(signupData, ApiPath) {
   var $ctrl = this;
   $ctrl.signupData = signupData;
+  $ctrl.imagebasepath = ApiPath;
 }
 
 })();

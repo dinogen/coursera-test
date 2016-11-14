@@ -23,7 +23,15 @@ function SignupController(signupData,menuItems) {
     $ctrl.signupData.email = $ctrl.email;
     $ctrl.signupData.phone = $ctrl.phone;
     $ctrl.signupData.favoritedish = $ctrl.favoritedish;
-    console.log($ctrl.signupData);
+
+    $ctrl.menuItems.forEach(function (item,index) {
+      if (item.short_name == $ctrl.favoritedish)
+      {
+        $ctrl.signupData.favoritedishjsondata = item;
+      }
+    });
+
+
     $ctrl.completed = true;
   }
 }

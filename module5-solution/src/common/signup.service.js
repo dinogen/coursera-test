@@ -14,7 +14,7 @@ function SignupService() {
     lastname: "",
     email: "",
     phone: "",
-    favoritedish: ""
+    favoritedish: "",
   }
 
   service.getSignupData = function () {

@@ -55,7 +55,7 @@
           name="favoritedish"
           ng-model="signupCtrl.favoritedish"
           required>
-    <option ng-repeat="menuitem in signupCtrl.menuItems" value="{{menuitem.short_name}}">{{menuitem.name}}</option>
+    <option ng-repeat="menuitem in signupCtrl.menuItems" value="{{menuitem.short_name}}">{{menuitem.short_name}} - {{menuitem.name}}</option>
   </select>
   <span class="text-warning"
   ng-if="signupForm.favoritedish.$error.required && signupForm.favoritedish.$touched">
@@ -71,6 +71,5 @@
   <div id="info" ng-if="signupCtrl.completed">
     <h3>Your information has been saved</h3>
     <a ui-sref="public.myinfo">View your information</a>
-    <!-- First name: {{ signupCtrl.signupData.firstname}} <br> -->
   </div>
 </div>
